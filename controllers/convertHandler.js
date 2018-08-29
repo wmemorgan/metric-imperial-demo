@@ -88,6 +88,7 @@ function ConvertHandler() {
         break
       case 'km':
         result = 'kilometers'
+        break
       default:
         result = 'invalid unit'
         break
@@ -130,7 +131,7 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    let result = `${initNum} ${initUnit} converts to ${round(returnNum, 5)} ${returnUnit}`
+    let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${round(returnNum, 5)} ${this.spellOutUnit(returnUnit)}`
     console.log(result)
     return result;
   };

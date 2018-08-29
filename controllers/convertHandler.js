@@ -36,15 +36,60 @@ function ConvertHandler() {
   };
   
   this.getReturnUnit = function(initUnit) {
-    var result;
-    
-    return result;
+    let unit = initUnit.toLowerCase()
+    let result
+    switch (unit) {
+      case 'gal':
+        result = 'L'
+        break
+      case 'l':
+        result = 'gal'
+        break
+      case 'lbs':
+        result = 'Kg'
+        break
+      case 'kg':
+        result = 'lbs'
+        break
+      case 'mi':
+        result = 'km'
+        break
+      case 'km':
+        result = 'mi'
+      default:
+        result = 'invalid unit'
+        break
+    }
+    return result
   };
 
   this.spellOutUnit = function(unit) {
-    var result;
+    let result
+    switch (unit) {
+      case 'gal':
+        result = 'gallons'
+        break
+      case 'l':
+        result = 'liters'
+        break
+      case 'lbs':
+        result = 'pounds'
+        break
+      case 'kg':
+        result = 'kilograms'
+        break
+      case 'mi':
+        result = 'miles'
+        break
+      case 'km':
+        result = 'kilometers'
+      default:
+        result = 'invalid unit'
+        break
+    }
+
     
-    return result;
+    return result
   };
   
   this.convert = function(initNum, initUnit) {

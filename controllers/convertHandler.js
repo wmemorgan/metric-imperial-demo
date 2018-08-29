@@ -14,17 +14,23 @@ function ConvertHandler() {
   }
 
   this.getNum = function(input) {
-    if(!((/[0-9]/).test(input[0]))) {
+    var result
+    var test = /[!@#$ %^&* (),.?":{}|<>]/g.test(input[0])
+    console.log(`First character test is: `, test)
+    if ((/[!@#$ %^&* (),.?":{}|<>]/g).test(input[0])) {
+      result = 'invalid number'
+    }
+    else if (!((/[0-9]/).test(input[0]))) {
       console.log(`There were no numbers in the input string`)
-      var result = 1
+      result = 1
     } else {
       var num = input.match(NUMERIC_REGEXP).toString()
       console.log(`num is: `, num)
       if ((/\//g).test(num)) {
-        var result = round(eval(num), 5)
+        result = round(eval(num), 5)
         console.log(`You've got a fraction the quotient is: ${result}`)
       } else {
-        var result = input.match(NUMERIC_REGEXP)
+        result = input.match(NUMERIC_REGEXP)
       }
       console.log(`getNum result is: `, result) 
     }

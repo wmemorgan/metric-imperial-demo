@@ -24,14 +24,18 @@ module.exports = function (app) {
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
-      const answer = () => { 
-        return (
-          returnUnit === 'invalid unit' ? 'invalid unit' :
-            { initNum, initUnit, returnNum, returnNum, returnUnit, string: toString }
-        )
+      const answer = () => {
+        if (!initNum && returnUnit === 'invalid unit') {
+          return 'invalid number and unit'
+        } else if (!initNum) {
+            return 'invalid number'
+        } else if (returnUnit === 'invalid unit') {
+            return 'invalid unit'
+        } else {
+            return { initNum, initUnit, returnNum, returnNum, returnUnit, string: toString }
+        } 
       }
 
       res.json(answer())
     });
-    
 };

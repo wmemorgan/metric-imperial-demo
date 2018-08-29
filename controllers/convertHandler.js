@@ -108,19 +108,19 @@ function ConvertHandler() {
         result = initNum * galToL
         break
       case 'l':
-        result = round(initNum / galToL, 5)
+        result = initNum / galToL
         break
       case 'lbs':
         result = initNum * lbsToKg
         break
       case 'kg':
-        result = round(initNum / lbsToKg, 5)
+        result = initNum / lbsToKg
         break
       case 'mi':
         result = initNum * miToKm 
         break
       case 'km':
-        result = round(initNum / miToKm, 5)
+        result = initNum / miToKm
       default:
         result = 'invalid unit'
         break
@@ -130,8 +130,8 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    var result;
-    
+    let result = `${initNum} ${initUnit} converts to ${round(returnNum, 5)} ${returnUnit}`
+    console.log(result)
     return result;
   };
   

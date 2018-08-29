@@ -69,8 +69,9 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
+    let unitLowerCase = unit.toLowerCase()
     let result
-    switch (unit) {
+    switch (unitLowerCase) {
       case 'gal':
         result = 'gallons'
         break

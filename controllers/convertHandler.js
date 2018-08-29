@@ -14,17 +14,22 @@ function ConvertHandler() {
   }
 
   this.getNum = function(input) {
-    var num = input.match(NUMERIC_REGEXP).toString()
-    console.log(`num is: `, num)
-    console.log(typeof num)
-    if ((/\//g).test(num)) {
-      var result = round(eval(num), 5)
-      console.log(`You've got a fraction the quotient is: ${result}`)
+    if(!((/[0-9]/).test(input[0]))) {
+      console.log(`There were no numbers in the input string`)
+      var result = 1
     } else {
-      var result = input.match(NUMERIC_REGEXP)
+      var num = input.match(NUMERIC_REGEXP).toString()
+      console.log(`num is: `, num)
+      if ((/\//g).test(num)) {
+        var result = round(eval(num), 5)
+        console.log(`You've got a fraction the quotient is: ${result}`)
+      } else {
+        var result = input.match(NUMERIC_REGEXP)
+      }
+      console.log(`getNum result is: `, result) 
     }
-    console.log(`getNum result is: `, result)
     return result;
+    
   };
   
   this.getUnit = function(input) {
@@ -96,7 +101,30 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    var result;
+    let unit = initUnit.toLowerCase()
+    let result
+    switch (unit) {
+      case 'gal':
+        result = initNum * galToL
+        break
+      case 'l':
+        result = round(initNum / galToL, 5)
+        break
+      case 'lbs':
+        result = initNum * lbsToKg
+        break
+      case 'kg':
+        result = round(initNum / lbsToKg, 5)
+        break
+      case 'mi':
+        result = initNum * miToKm 
+        break
+      case 'km':
+        result = round(initNum / miToKm, 5)
+      default:
+        result = 'invalid unit'
+        break
+    }
     
     return result;
   };

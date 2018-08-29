@@ -28,7 +28,7 @@ function ConvertHandler() {
       }
       console.log(`getNum result is: `, result) 
     }
-    return result;
+    return Number(result);
     
   };
   
@@ -126,12 +126,11 @@ function ConvertHandler() {
         result = 'invalid unit'
         break
     }
-    
-    return result;
+    return round(result, 5);
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${round(returnNum, 5)} ${this.spellOutUnit(returnUnit)}`
+    let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`
     console.log(result)
     return result;
   };

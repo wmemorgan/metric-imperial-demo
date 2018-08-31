@@ -25,11 +25,11 @@ module.exports = function (app) {
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       const answer = () => {
-        if (!initNum && returnUnit === 'invalid unit') {
+        if (!initNum || initNum === 'invalid number' && returnUnit === 'invalid unit') {
           return 'invalid number and unit'
-        } else if (!initNum) {
+        } else if (!initNum || initNum === 'invalid number') {
             return 'invalid number'
-        } else if (returnUnit === 'invalid unit') {
+        } else if (returnUnit === 'invalid input unit') {
             return 'invalid unit'
         } else {
             return { initNum, initUnit, returnNum, returnNum, returnUnit, string: toString }

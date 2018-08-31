@@ -1,6 +1,6 @@
 # Metric/Imperial Converter
 
----
+
 ## User Stories
 
   1. I will help prevent the client from trying to guess(sniff) the MIME type.
@@ -18,7 +18,7 @@
   12. All 16 unit tests are complete and passing.
   13. All 5 functional tests are complete and passing.
 
----
+
 ## Example usage:
 ```
 /api/convert?input=4gal
@@ -27,7 +27,7 @@
 /api/convert?input=kg
 ```
 
----
+
 ## Example return:
 ```
 {initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008, returnUnit: 'km', string: '3.1 miles converts to 5.00002 kilometers'}

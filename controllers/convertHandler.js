@@ -18,7 +18,7 @@ function ConvertHandler() {
     var firstCharTest = /[!@#$ %^&* (),.?":{}|<>]/g.test(input[0])
     if (firstCharTest) {
       console.log(`First character is: ${firstCharTest}`)
-      result = 'invalid number'
+      return result = 'invalid number'
     }
     else if (!((/[0-9]/).test(input[0]))) {
       console.log(`There were no numbers in the input string`)
@@ -27,8 +27,14 @@ function ConvertHandler() {
       var num = input.match(NUMERIC_REGEXP).toString()
       console.log(`num is: `, num)
       if ((/\//g).test(num)) {
-        result = round(eval(num), 5)
-        console.log(`You've got a fraction the quotient is: ${result}`)
+        console.log(`Number of matches: `, num.match((/\//g)).length)
+        if (num.match((/\//g)).length > 1) {
+          console.log(`Sorry buddy too many slashes`)
+          return result = 'invalid number'
+        } else {
+          result = round(eval(num), 5)
+          console.log(`Valid fraction that converts to: ${result}`)
+        }
       } else {
         result = input.match(NUMERIC_REGEXP)
       }
@@ -100,7 +106,7 @@ function ConvertHandler() {
         result = 'kilometers'
         break
       default:
-        result = 'invalid unit'
+        result = 'invalid input unit'
         break
     }
 

@@ -15,9 +15,9 @@ function ConvertHandler() {
 
   this.getNum = function(input) {
     var result
-    var test = /[!@#$ %^&* (),.?":{}|<>]/g.test(input[0])
-    console.log(`First character test is: `, test)
-    if ((/[!@#$ %^&* (),.?":{}|<>]/g).test(input[0])) {
+    var firstCharTest = /[!@#$ %^&* (),.?":{}|<>]/g.test(input[0])
+    if (firstCharTest) {
+      console.log(`First character is: ${firstCharTest}`)
       result = 'invalid number'
     }
     else if (!((/[0-9]/).test(input[0]))) {
@@ -48,6 +48,8 @@ function ConvertHandler() {
   
   this.getReturnUnit = function(initUnit) {
     let unit = initUnit.toLowerCase()
+    console.log(`Unit is ${unit}`)
+
     let result
     switch (unit) {
       case 'gal':
@@ -57,7 +59,7 @@ function ConvertHandler() {
         result = 'gal'
         break
       case 'lbs':
-        result = 'Kg'
+        result = 'kg'
         break
       case 'kg':
         result = 'lbs'
@@ -67,6 +69,7 @@ function ConvertHandler() {
         break
       case 'km':
         result = 'mi'
+        break
       default:
         result = 'invalid unit'
         break

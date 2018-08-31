@@ -17,28 +17,21 @@ function ConvertHandler() {
     var result
     var firstCharTest = /[!@#$ %^&* (),.?":{}|<>]/g.test(input[0])
     if (firstCharTest) {
-      console.log(`First character is: ${firstCharTest}`)
       return result = 'invalid number'
     }
     else if (!((/[0-9]/).test(input[0]))) {
-      console.log(`There were no numbers in the input string`)
       result = 1
     } else {
       var num = input.match(NUMERIC_REGEXP).toString()
-      console.log(`num is: `, num)
       if ((/\//g).test(num)) {
-        console.log(`Number of matches: `, num.match((/\//g)).length)
         if (num.match((/\//g)).length > 1) {
-          console.log(`Sorry buddy too many slashes`)
           return result = 'invalid number'
         } else {
           result = round(eval(num), 5)
-          console.log(`Valid fraction that converts to: ${result}`)
         }
       } else {
         result = input.match(NUMERIC_REGEXP)
       }
-      console.log(`getNum result is: `, result) 
     }
     return Number(result);
     
@@ -46,16 +39,12 @@ function ConvertHandler() {
   
   this.getUnit = function(input) {
     var firstCharIndex = input.indexOf(input.match(ALPHA_REGEX));
-    console.log(`A letter first appears in this index: `, firstCharIndex)
     var result = input.slice(firstCharIndex)
-    console.log(`getUnit result is: `, result)
     return result;
   };
   
   this.getReturnUnit = function(initUnit) {
     let unit = initUnit.toLowerCase()
-    console.log(`Unit is ${unit}`)
-
     let result
     switch (unit) {
       case 'gal':
@@ -148,7 +137,6 @@ function ConvertHandler() {
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`
-    console.log(result)
     return result;
   };
   

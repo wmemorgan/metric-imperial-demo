@@ -6,7 +6,7 @@
   1. I will help prevent the client from trying to guess(sniff) the MIME type.
   2. I will prevent cross-site scripting (XSS) attacks.
   3. I can GET /api/convert with a single parameter containing an accepted number and unit and have it converted.
-  _*Hint: Split the input by looking for the index of the first character.*_
+  ***Hint: Split the input by looking for the index of the first character.***
   4. I can convert 'gal' to 'L' and vice versa. (1 gal to 3.78541 L)
   5. I can convert 'lbs' to 'kg' and vice versa. (1 lbs to 0.453592 kg)
   6. I can convert 'mi' to 'km' and vice versa. (1 mi to 1.60934 km)

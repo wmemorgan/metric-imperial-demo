@@ -132,6 +132,7 @@ function ConvertHandler() {
         break
       case 'km':
         result = initNum / miToKm
+        break
       default:
         result = 'invalid unit'
         break

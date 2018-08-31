@@ -18,17 +18,12 @@ module.exports = function (app) {
   app.route('/api/convert')
     .get(function (req, res){
       var input = req.query.input;
-      console.log('input is: ', input)
       var initNum = convertHandler.getNum(input);
       var initUnit = convertHandler.getUnit(input);
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       const answer = () => {
-        console.log(`initNum is: ${initNum}`)
-        console.log(`initUnit is: ${initUnit}`)
-        console.log(`returnNum is: ${returnNum}`)
-        console.log(`returnUnit is: ${returnUnit}`)
         if (!initNum || initNum === 'invalid number' && returnUnit === 'invalid unit') {
           return 'invalid number and unit'
         } else if (!initNum || initNum === 'invalid number') {
